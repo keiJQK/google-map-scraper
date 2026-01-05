@@ -5,6 +5,21 @@ opens each place page, captures Overview/Review HTML,
 extracts structured fields (profile + ratings + review texts),
 and exports them as a CSV for downstream processing such as analysis or reporting.
 
+## Why this exists
+- **Problem:** Manually collecting Google Maps place info and review snippets is slow and repetitive.
+- **Goal:** Automate the flow from keyword search → HTML snapshots (Overview/Reviews) → a structured CSV output.
+- **Output:** Per-place HTML snapshots + a CSV dataset (current format is “vertical”: one place per column).
+
+## Constraints / Trade-offs
+- **Japanese UI only:** This project relies on Japanese UI labels (e.g., "概要", "クチコミ", "詳細"). If your Google Maps UI is not Japanese, selectors may break.
+- **Fragile against UI/DOM changes:** Google Maps frequently changes its DOM. Hardcoded selectors may require manual updates.
+- **Worker not included:** The Selenium worker implementation is not shipped in this repository. You must provide your own worker and wire it into `temporary_setup()`.
+- **Minimal hardening:** Retries and error handling are intentionally minimal. Automated access may be blocked (CAPTCHA/rate limits), and manual intervention may be required.
+
+## Next improvements (planned)
+- Replace fixed sleeps with `WebDriverWait` for stability.
+- Externalize selectors into a config file for easier maintenance.
+- Split “fetch HTML” and “extract CSV” into separate runnable entry points (re-extraction workflow).
 
 ## How to Run
 - This repository requires an external Selenium worker implementation
