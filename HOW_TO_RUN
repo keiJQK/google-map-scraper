@@ -1,0 +1,56 @@
+## How to Run
+### Prerequisites
+- Python 3.10 or later
+- A working Selenium (Chrome) environment
+  - Google Chrome installed locally
+  - ChromeDriver that matches your Chrome version
+- Network access that can open Google Maps
+
+### Dependencies
+This project includes a `requirements.txt`
+containing the minimum libraries required to run the pipeline.
+
+Install dependencies with:
+- pip install -r requirements.txt
+
+### Required Worker Contract (Selenium)
+This repository does not ship the Selenium worker implementation.
+You must provide your own worker implementation and wire it into the runner.
+
+- In `google_map_runner.py`, `temporary_setup()` raises `NotImplementedError`
+  by default. Replace its body to create and return your own `SetupGoogleMap`
+  instance.
+
+Required contract:
+
+- Class: `SetupGoogleMap`
+- Method: `run()`
+
+After calling `run()`, the instance must expose:
+- `rt_session`: a session object used by the usecase
+  (must provide Selenium actions like `access_url_selenium()`, `fetch_html()`,
+  plus Google Maps helpers if used).
+
+### Execute
+From the project root (where `src/` exists):
+
+- python -m src.google_map_runner
+
+Run from the project root directory.
+No PYTHONPATH configuration is required.
+
+Execution parameters (keyword, number of result cards,
+number of reviews) are currently defined directly in `MapContext`. 
+
+### Example (Minimal Run):
+- keyword: "bar"
+- num_target_search_results: 5
+- num_target_review: 10
+
+### Output Note
+During execution, the pipeline saves:
+- HTML snapshots (Overview / Review) per place
+- CSV output extracted from the saved HTML 
+
+Because HTML is saved, you can update selectors later
+and re-run only the extraction step if needed.
