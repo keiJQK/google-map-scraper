@@ -1,3 +1,15 @@
+# venv
+public/src/__pycache__
+
+# Runtime data
+public/data/csv/*.csv
+public/data/html/*.html
+public/data/*.log
+
+# Optional: safety net
+*.csv
+*.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
