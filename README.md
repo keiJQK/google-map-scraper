@@ -6,6 +6,9 @@ The tool captures search and place-detail traffic through Chrome DevTools Protoc
 (CDP) and saves the results as JSON, CSV, or TXT. Search regions can be specified
 using OpenStreetMap Nominatim.
 
+## Demo
+https://github.com/keiJQK/google-map-scraper/blob/main/reference/video/demo_google_map_20261016.mp4
+
 ## Features
 
 - Search for places by keyword and region.
