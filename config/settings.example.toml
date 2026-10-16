@@ -1,0 +1,15 @@
+[search]
+query = "Italian restaurants"           # Required search keyword; e.g. "cafes".
+# location = "New York, New York, USA"  # Uncomment to specify a region; otherwise Maps chooses the area.
+zoom = 14                               # Integer 0-21; used only when location is set.
+max_places = 30                         # Search-card target; positive integer, not a strict cap.
+# max_place_details = 2                 # Uncomment to limit details; integer >= 0, 0 = skip, omitted = all.
+
+[output]
+format = "json"                         # Choose "json", "csv", or "text" (.txt).
+
+[browser]
+language = "en"                         # Language code; e.g. "ja". See references/languages.md.
+headless = false                        # true or false; keep false for normal use.
+timeout = 30                            # Timeout in seconds; finite number > 0.
+# chrome_binary = 'C:\Program Files\Google\Chrome\Application\chrome.exe'  # Uncomment for a custom Chrome path.
