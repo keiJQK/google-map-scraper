@@ -7,7 +7,7 @@ The tool captures search and place-detail traffic through Chrome DevTools Protoc
 using OpenStreetMap Nominatim.
 
 ## Demo
-https://github.com/keiJQK/google-map-scraper/blob/main/references/video/demo_google_map_20261016.mp4
+[Look at the demo video](https://github.com/keiJQK/google-map-scraper/issues/1#issue-5883599816)
 
 ## Features
 
